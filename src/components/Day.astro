@@ -1,0 +1,12 @@
+---
+import Match from "./Match.astro";
+import { MatchProps } from "./Match.astro";
+
+export interface DayProps {
+    day: Date
+    matches: MatchProps[]
+}
+const { day, matches } = Astro.props as DayProps;
+---
+<p>{day}</p>
+{matches.map(match => <Match {...match}></Match>)}

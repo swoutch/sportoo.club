@@ -1,6 +1,11 @@
 ---
-import Match from '../components/Match.astro';
 import matches from '../../data/matches.json'
+import _ from 'lodash'
+import { parseISO, format} from 'date-fns'
+import Day from '../components/Day.astro';
+
+const matchesByDay = _.groupBy(matches, match => format(parseISO(match.start), "PPP"))
+
 ---
 
 <!DOCTYPE html>
@@ -13,8 +18,7 @@ import matches from '../../data/matches.json'
 </head>
 
 <body>
-    {matches.map(match =>
-    <Match {...match} />)}
+    {Object.entries(matchesByDay).map(([day, matchesOfDay]) => <Day day={day} matches={matchesOfDay}></Day>)}
 </body>
 
 </html>

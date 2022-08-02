@@ -11,7 +11,6 @@ import Team from "./Team.astro";
 ---
 
 <div class='match'>
-    <div class='start'>{start}</div>
     <div class="team1_won">{result == "1" ? "🏆" : ""}</div>
     <div class="draw">{result == "N" ? "🟰" : ""}</div>
     <div class="team2_won">{result == "2" ? "🏆" : ""}</div>
@@ -29,11 +28,6 @@ import Team from "./Team.astro";
             "team1_won draw team2_won"
             "team1_players vs team2_players";
         grid-template-columns: 1fr auto 1fr;
-    }
-
-    .start {
-        grid-area: start;
-        text-align: center;
     }
 
     .team1_won {
