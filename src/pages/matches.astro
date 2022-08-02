@@ -2,4 +2,18 @@
 import Match from '../components/Match.astro';
 import matches from '../../data/matches.json'
 ---
-{matches.map(match => <Match {...match} />)}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Matches</title>
+</head>
+
+<body>
+    {matches.map(match =>
+    <Match {...match} />)}
+</body>
+
+</html>
