@@ -15,7 +15,7 @@ import Team from "./Team.astro";
     <div class="team1_won">{result == "1" ? "🏆" : ""}</div>
     <div class="draw">{result == "N" ? "🟰" : ""}</div>
     <div class="team2_won">{result == "2" ? "🏆" : ""}</div>
-    <Team players={team1} />
+    <Team players={team1} className="team1_players" />
     <p class="vs">VS</p>
     <Team players={team2} className="team2_players" />
 </div>
@@ -34,5 +34,36 @@ import Team from "./Team.astro";
     .start {
         grid-area: start;
         text-align: center;
+    }
+
+    .team1_won {
+        grid-area: team1_won;
+        text-align: center;
+    }
+
+    .draw {
+        grid-area: draw;
+        text-align: center;
+    }
+
+    .team2_won {
+        grid-area: team2_won;
+        text-align: center;
+    }
+
+    .team1_players {
+        grid-area: team1_players;
+    }
+
+    .vs {
+        grid-area: vs;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .team2_players {
+        grid-area: team2_players;
     }
 </style>
