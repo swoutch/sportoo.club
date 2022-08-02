@@ -1,0 +1,12 @@
+---
+export interface Props {
+    players: string[]
+    className: string;
+}
+
+const { players, className } = Astro.props as Props;
+---
+
+<div class={className}>
+    {players.map((name) => (<p class="player">{name}</p>))}
+</div>

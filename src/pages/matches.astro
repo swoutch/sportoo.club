@@ -1,0 +1,5 @@
+---
+import Match from '../components/Match.astro';
+import matches from '../../data/matches.json'
+---
+{matches.map(match => <Match {...match} />)}

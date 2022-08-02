@@ -1,0 +1,83 @@
+[
+  {
+    "start": "2022-07-21T12:30:00+01:00",
+    "team1": [
+      "Charlotte Brunet",
+      "Mehdi Redissi",
+      "Antoine Ideel",
+      "Idris Sakhi",
+      "Mehdi Ouchene"
+    ],
+    "team2": [
+      "Théophile Berger",
+      "Jules Léné",
+      "Louis Houlle",
+      "Kévin Dos Santos",
+      "Mathilde Croo"
+    ],
+    "result": "1",
+    "highlights": [
+      "Théophile a bléssé Idris",
+      "Mehdi m'a mis dans le vent avec sa feinte de frappe puis crochet"
+    ]
+  },
+  {
+    "start": "2022-07-21T12:30:00+01:00",
+    "team1": [
+      "Joy Kalombo",
+      "Pierre-Augustin Delort",
+      "Tal Baker-Phillips",
+      "Stefano Spingola",
+      "Bastien Antoine"
+    ],
+    "team2": [
+      "Alexandre Agostini",
+      "Adrien",
+      "Valentin Prunier",
+      "Thomas Nadaud",
+      "Achraf El Khachchai"
+    ],
+    "result": "2",
+    "highlights": [
+      "0 mental de l'équipe de Tal, qui menait +2 et qui s'est pris 3 buts à la fin du match"
+    ]
+  },
+  {
+    "start": "2022-07-21T13:00:00+01:00",
+    "team1": [
+      "Charlotte Brunet",
+      "Mehdi Redissi",
+      "Antoine Ideel",
+      "Idris Sakhi",
+      "Mehdi Ouchene"
+    ],
+    "team2": [
+      "Alexandre Agostini",
+      "Adrien",
+      "Valentin Prunier",
+      "Thomas Nadaud",
+      "Achraf El Khachchai"
+    ],
+    "result": "2",
+    "highlights": ["But illégal de Thomas car il est rentré dans la surface"]
+  },
+  {
+    "start": "2022-07-21T13:00:00+01:00",
+    "team1": [
+      "Joy Kalombo",
+      "Pierre-Augustin Delort",
+      "Tal Baker-Phillips",
+      "Stefano Spingola",
+      "Bastien Antoine"
+    ],
+    "team2": [
+      "Théophile Berger",
+      "Jules Léné",
+      "Louis Houlle",
+      "Kévin Dos Santos",
+      "Mathilde Croo"
+    ],
+    "result": "1",
+    "highlights": []
+  }
+]
