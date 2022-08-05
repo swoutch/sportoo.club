@@ -5,9 +5,9 @@ import { parseISO, format, startOfDay, fromUnixTime} from 'date-fns'
 import Day from '../components/Day.astro';
 
 
-function groupByDay<T>(collection: _.List<T>, grouper?: (T) => Date): [Date, T[]][] {
+function groupByDay<T>(collection: _.List<T>, dateExtractor?: (T) => Date): [Date, T[]][] {
     let result = []
-    const groupedByTimestamp = _.groupBy(collection, x => grouper(x).getTime())
+    const groupedByTimestamp = _.groupBy(collection, x => dateExtractor(x).getTime())
     for (const [timestamp, elem] of Object.entries(groupedByTimestamp)) {
         result.push([fromUnixTime(parseInt(timestamp)/1000), elem])
     }
