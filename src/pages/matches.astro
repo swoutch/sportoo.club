@@ -1,10 +1,19 @@
 ---
 import matches from '../../data/matches.json'
 import _ from 'lodash'
-import { parseISO, format} from 'date-fns'
+import { parseISO, format, startOfDay, fromUnixTime} from 'date-fns'
 import Day from '../components/Day.astro';
 
-const matchesByDay = _.groupBy(matches, match => format(parseISO(match.start), "PPP"))
+
+function groupByDay<T>(collection: _.List<T>, grouper?: (T) => Date): [Date, T[]][] {
+    let result = []
+    const groupedByTimestamp = _.groupBy(collection, x => grouper(x).getTime())
+    for (const [timestamp, elem] of Object.entries(groupedByTimestamp)) {
+        result.push([fromUnixTime(parseInt(timestamp)/1000), elem])
+    }
+    return result
+}
+const matchesByDay = groupByDay(matches, match => parseISO(match.start))
 
 ---
 
@@ -18,7 +27,7 @@ const matchesByDay = _.groupBy(matches, match => format(parseISO(match.start), "
 </head>
 
 <body>
-    {Object.entries(matchesByDay).map(([day, matchesOfDay]) => <Day day={day} matches={matchesOfDay}></Day>)}
+    {matchesByDay.map(([day, matchesOfDay]) => <Day day={day} matches={matchesOfDay}></Day>)}
 </body>
 
 </html>
