@@ -11,5 +11,21 @@ const { day, matches } = Astro.props as DayProps;
 ---
 <div>
     <p>{format(day, "PPP")}</p>
-    {matches.map(match => <Match {...match}></Match>)}
+    <div class="matches-of-day">
+        {matches.map(match => <Match {...match}></Match>)}
+    </div>
 </div>
+
+<style>
+    .matches-of-day {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    @media screen and (min-width: 600px) {
+        .matches-of-day {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+</style>
