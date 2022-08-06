@@ -22,9 +22,14 @@ const { day, matches } = Astro.props as DayProps;
         grid-template-columns: 1fr;
     }
 
-    @media screen and (min-width: 600px) {
+    @media screen and (min-width: 426px) {
         .matches-of-day {
             grid-template-columns: 1fr 1fr;
+        }
+    }
+    @media screen and (min-width: 768px) {
+        .matches-of-day {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
         }
     }
 
