@@ -9,5 +9,7 @@ export interface DayProps {
 }
 const { day, matches } = Astro.props as DayProps;
 ---
-<p>{format(day, "PPP")}</p>
-{matches.map(match => <Match {...match}></Match>)}
+<div>
+    <p>{format(day, "PPP")}</p>
+    {matches.map(match => <Match {...match}></Match>)}
+</div>
