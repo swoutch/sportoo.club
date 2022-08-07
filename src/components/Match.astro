@@ -25,9 +25,9 @@ const maxPlayers = Math.max(team1.length, team2.length);
     <div class="team-1-won">{result == "1" ? "🏆" : ""}</div>
     <div class="draw">{result == "N" ? "🟰" : ""}</div>
     <div class="team-2-won">{result == "2" ? "🏆" : ""}</div>
-    {teamOneOrder.map(player => (<p class={`team-1`} style={`order: ${player.order}`}>{player.name}</p>))}
+    {teamOneOrder.map(player => (<p class="team-1" style={`order: ${player.order}`}>{player.name}</p>))}
     <p class="vs" style={`grid-row-end: ${maxPlayers+2}`}>VS</p>
-    {teamTwoOrder.map(player => (<p class={`team-2`} style={`order: ${player.order}`}>{player.name}</p>))}
+    {teamTwoOrder.map(player => (<p class="team-2" style={`order: ${player.order}`}>{player.name}</p>))}
 </div>
 
 <style>
@@ -59,6 +59,7 @@ const maxPlayers = Math.max(team1.length, team2.length);
     .team-1 {
         grid-column-start: 1;
         grid-column-end: 2;
+        text-align: right;
     }
 
     .vs {
@@ -74,5 +75,6 @@ const maxPlayers = Math.max(team1.length, team2.length);
     .team-2 {
         grid-column-start: 3;
         grid-column-end: 4;
+        text-align: left;
     }
 </style>
