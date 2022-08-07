@@ -10,13 +10,15 @@ const { result, team1, team2 } = Astro.props as MatchProps;
 const teamOneOrder = [];
 
 for (const [index, name] of team1.entries()) {
-    teamOneOrder.push({order: index+1, name: name});
+    teamOneOrder.push({ order: index + 1, name: name });
 }
 const teamTwoOrder = [];
 
 for (const [index, name] of team2.entries()) {
-    teamTwoOrder.push({order: index+1, name: name});
+    teamTwoOrder.push({ order: index + 1, name: name });
 }
+
+const maxPlayers = Math.max(team1.length, team2.length);
 ---
 
 <div class='match'>
@@ -24,7 +26,7 @@ for (const [index, name] of team2.entries()) {
     <div class="draw">{result == "N" ? "🟰" : ""}</div>
     <div class="team-2-won">{result == "2" ? "🏆" : ""}</div>
     {teamOneOrder.map(player => (<p class={`team-1`} style={`order: ${player.order}`}>{player.name}</p>))}
-    <p class="vs">VS</p>
+    <p class="vs" style={`grid-row-end: ${maxPlayers+2}`}>VS</p>
     {teamTwoOrder.map(player => (<p class={`team-2`} style={`order: ${player.order}`}>{player.name}</p>))}
 </div>
 
@@ -41,35 +43,34 @@ for (const [index, name] of team2.entries()) {
         grid-column-end: 2;
         text-align: center;
     }
-    
+
     .draw {
         grid-column-start: 2;
         grid-column-end: 3;
         text-align: center;
     }
-    
+
     .team-2-won {
         grid-column-start: 3;
         grid-column-end: 4;
         text-align: center;
     }
-    
+
     .team-1 {
         grid-column-start: 1;
         grid-column-end: 2;
     }
-    
+
     .vs {
         grid-column-start: 2;
         grid-column-end: 3;
         grid-row-start: 2;
-        grid-row-end: 7;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-    
-    
+
+
     .team-2 {
         grid-column-start: 3;
         grid-column-end: 4;
