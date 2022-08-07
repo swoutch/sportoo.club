@@ -25,11 +25,12 @@ const matchesByDayDescending = matchesByDay.sort((d1, d2) => compareDesc(d1[0], 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matches</title>
+    <title>Matches | sportoo.club</title>
 </head>
 
 <body>
-    <h1>Matches</h1>
+    <h1>sportoo.club</h1>
+    <h2>Matches</h2>
     {matchesByDay.map(([day, matchesOfDay]) => <Day day={day} matches={matchesOfDay}></Day>)}
 </body>
 
@@ -43,10 +44,5 @@ const matchesByDayDescending = matchesByDay.sort((d1, d2) => compareDesc(d1[0], 
         color: #566b78;
         margin: 0 auto;
         max-width: 60rem
-    }
-
-    h2 {
-        margin-top: 1em;
-        padding-top: 1em;
     }
 </style>
