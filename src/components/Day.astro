@@ -23,17 +23,10 @@ const { day, matches } = Astro.props as DayProps;
         gap: 1rem;
     }
 
-    @media screen and (min-width: 426px) {
+    @media screen and (min-width: 700px) {
         .matches-of-day {
             grid-template-columns: 1fr 1fr;
         }
     }
-    @media screen and (min-width: 768px) {
-        .matches-of-day {
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-        }
-    }
-
-    /* TODO: make width fixed above something like 800px or 50em */
 
 </style>
