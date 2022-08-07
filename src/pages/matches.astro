@@ -1,7 +1,7 @@
 ---
 import matches from '../../data/matches.json'
 import _ from 'lodash'
-import { parseISO, startOfDay, fromUnixTime } from 'date-fns'
+import { parseISO, startOfDay, fromUnixTime, compareDesc } from 'date-fns'
 import Day from '../components/Day.astro';
 
 
@@ -14,6 +14,8 @@ function groupByDay<T>(collection: _.List<T>, dateExtractor?: (T) => Date): [Dat
     return result
 }
 const matchesByDay = groupByDay(matches, match => parseISO(match.start))
+
+const matchesByDayDescending = matchesByDay.sort((d1, d2) => compareDesc(d1[0], d2[0]))
 
 ---
 
