@@ -35,6 +35,8 @@ const maxPlayers = Math.max(team1.length, team2.length);
         border: 1px solid black;
         border-radius: 0.5rem;
 
+        padding: 0.5rem;
+
         display: grid;
         grid-template-columns: 1fr auto 1fr;
         gap: 1rem;
@@ -60,27 +62,37 @@ const maxPlayers = Math.max(team1.length, team2.length);
 
     .player {
         margin: 0;
+
+        display: flex;
+        align-items: center;
     }
 
     .team-1 {
         grid-column-start: 1;
         grid-column-end: 2;
+
+        justify-content: flex-end;
+
         text-align: right;
     }
-
+    
     .vs {
         grid-column-start: 2;
         grid-column-end: 3;
         grid-row-start: 2;
+        
         display: flex;
         align-items: center;
         justify-content: center;
     }
-
-
+    
+    
     .team-2 {
         grid-column-start: 3;
         grid-column-end: 4;
+
+        justify-content: flex-start;
+
         text-align: left;
     }
 </style>
