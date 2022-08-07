@@ -7,57 +7,71 @@ export interface MatchProps {
 }
 const { start, result, team1, team2 } = Astro.props as MatchProps;
 
-import Team from "./Team.astro";
+const teamOneOrder = [];
+
+for (const [index, name] of team1.entries()) {
+    teamOneOrder.push({order: index+1, name: name});
+}
+const teamTwoOrder = [];
+
+for (const [index, name] of team2.entries()) {
+    teamTwoOrder.push({order: index+1, name: name});
+}
 ---
 
 <div class='match'>
-    <div class="team1_won">{result == "1" ? "🏆" : ""}</div>
+    <div class="team-1-won">{result == "1" ? "🏆" : ""}</div>
     <div class="draw">{result == "N" ? "🟰" : ""}</div>
-    <div class="team2_won">{result == "2" ? "🏆" : ""}</div>
-    <Team players={team1} className="team1_players" />
+    <div class="team-2-won">{result == "2" ? "🏆" : ""}</div>
+    {teamOneOrder.map(player => (<p class={`team-1`} style={`order: ${player.order}`}>{player.name}</p>))}
     <p class="vs">VS</p>
-    <Team players={team2} className="team2_players" />
+    {teamTwoOrder.map(player => (<p class={`team-2`} style={`order: ${player.order}`}>{player.name}</p>))}
 </div>
 
 <style>
     .match {
         display: grid;
         border: 1px solid black;
-        grid-template-areas:
-            "team1_won draw team2_won"
-            "team1_players vs team2_players";
         grid-template-columns: 1fr auto 1fr;
         border-radius: 0.5rem;
     }
 
-    .team1_won {
-        grid-area: team1_won;
+    .team-1-won {
+        grid-column-start: 1;
+        grid-column-end: 2;
         text-align: center;
     }
-
+    
     .draw {
-        grid-area: draw;
+        grid-column-start: 2;
+        grid-column-end: 3;
         text-align: center;
     }
-
-    .team2_won {
-        grid-area: team2_won;
+    
+    .team-2-won {
+        grid-column-start: 3;
+        grid-column-end: 4;
         text-align: center;
     }
-
-    .team1_players {
-        grid-area: team1_players;
+    
+    .team-1 {
+        grid-column-start: 1;
+        grid-column-end: 2;
     }
-
+    
     .vs {
-        grid-area: vs;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 7;
         display: flex;
         align-items: center;
         justify-content: center;
     }
-
-
-    .team2_players {
-        grid-area: team2_players;
+    
+    
+    .team-2 {
+        grid-column-start: 3;
+        grid-column-end: 4;
     }
 </style>
